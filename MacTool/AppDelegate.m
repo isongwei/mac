@@ -61,6 +61,8 @@
     _v= [[DragDropView alloc]initWithFrame:self.statusItem.button.bounds];
     _v.delegate = self;
     [self.statusItem.button addSubview:_v];
+    _v.wantsLayer = YES;
+    
     
     
     
@@ -95,7 +97,6 @@
     if (![[[[dataPath lastPathComponent] componentsSeparatedByString:@"."] lastObject] isEqualToString:@"app"]) {
         return;
     }
-
     NSError *error = nil;
     NSString * appName = [[dataPath lastPathComponent] componentsSeparatedByString:@"."][0];
     NSString *srcPath = [NSString stringWithFormat:@"%@/Desktop/IPA包/%@_%@",rootPath,appName,[Tool TimeWithFormat:nil]];
@@ -111,6 +112,7 @@
     
     if (S) {
         NSLog(@"创建成功");
+        _v.layer.backgroundColor = [NSColor colorWithWhite:0 alpha:0.5].CGColor;
     }else{
         NSLog(@"创建失败");
     }
@@ -124,41 +126,26 @@
             //更换名字
             if([[NSFileManager defaultManager] moveItemAtPath:srcPath1 toPath:srcPath2 error:nil]){
                 NSLog(@"ipa成功");
+                
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    self->_v.layer.backgroundColor = [NSColor clearColor].CGColor;
+                });
+                
+            }else{
+                _v.layer.backgroundColor = [NSColor clearColor].CGColor;
             }
-        }else{NSLog(@"压缩失败");
+        }else{
+            NSLog(@"压缩失败");
+            _v.layer.backgroundColor = [NSColor clearColor].CGColor;
         }
     }else{
         NSLog(@"Not Copied %@", error);
+        _v.layer.backgroundColor = [NSColor clearColor].CGColor;
     }
 }
 
-- (void)saveFile:(NSString *)folderPath
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"destination.png"];
-    
-    NSError *error = nil;
-    NSString *srcPath = [folderPath stringByAppendingPathComponent:@"filename.png"];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:dataPath])
-    {
-        //removing file
-        if (![[NSFileManager defaultManager] removeItemAtPath:dataPath error:&error])
-        {
-            NSLog(@"Could not remove old files. Error:%@",error);
-        }
-    }
-    BOOL success = [[NSFileManager defaultManager] copyItemAtPath:srcPath toPath:dataPath error:&error];
-    if (success == YES)
-    {
-        NSLog(@"Copied");
-    }
-    else
-    {
-        NSLog(@"Not Copied %@", error);
-    }
-}
+
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     
 }
