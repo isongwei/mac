@@ -39,6 +39,8 @@
 		E4FB211420EB6D63002E2797 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FB211320EB6D63002E2797 /* Tool.m */; };
 		E4FB211620EB73FC002E2797 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = E4FB211520EB73FC002E2797 /* loading.png */; };
 		E4FB211920EC6010002E2797 /* UserNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FB211820EC6010002E2797 /* UserNotificationCenter.m */; };
+		E4FB213F20ECA98B002E2797 /* ArchiveInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FB213D20ECA98B002E2797 /* ArchiveInfo.m */; };
+		E4FB214020ECA98B002E2797 /* ArchiveInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FB213E20ECA98B002E2797 /* ArchiveInfo.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +108,9 @@
 		E4FB211520EB73FC002E2797 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
 		E4FB211720EC6010002E2797 /* UserNotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserNotificationCenter.h; sourceTree = "<group>"; };
 		E4FB211820EC6010002E2797 /* UserNotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserNotificationCenter.m; sourceTree = "<group>"; };
+		E4FB213C20ECA98B002E2797 /* ArchiveInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArchiveInfo.h; sourceTree = "<group>"; };
+		E4FB213D20ECA98B002E2797 /* ArchiveInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArchiveInfo.m; sourceTree = "<group>"; };
+		E4FB213E20ECA98B002E2797 /* ArchiveInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArchiveInfo.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +160,9 @@
 				E4FB202220E9B63B002E2797 /* DragDropView.m */,
 				E4FB20AC20EA05E6002E2797 /* DragDropTool.h */,
 				E4FB20AD20EA05E6002E2797 /* DragDropTool.m */,
+				E4FB213C20ECA98B002E2797 /* ArchiveInfo.h */,
+				E4FB213D20ECA98B002E2797 /* ArchiveInfo.m */,
+				E4FB213E20ECA98B002E2797 /* ArchiveInfo.xib */,
 				E42809C320E4AF0600552AC8 /* Popvc.h */,
 				E42809C420E4AF0600552AC8 /* Popvc.m */,
 				E42809C520E4AF0600552AC8 /* Popvc.xib */,
@@ -327,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4FB214020ECA98B002E2797 /* ArchiveInfo.xib in Resources */,
 				E4FB211620EB73FC002E2797 /* loading.png in Resources */,
 				E42809AF20E47A2B00552AC8 /* Assets.xcassets in Resources */,
 				E42809CA20E4C7CC00552AC8 /* tool.png in Resources */,
@@ -355,6 +364,7 @@
 				E4FB20A520E9F39B002E2797 /* aes_ni.c in Sources */,
 				E4FB20A620E9F39B002E2797 /* prng.c in Sources */,
 				E4FB20A820E9F39B002E2797 /* aestab.c in Sources */,
+				E4FB213F20ECA98B002E2797 /* ArchiveInfo.m in Sources */,
 				E4FB209B20E9F39B002E2797 /* zip.c in Sources */,
 				E4FB20AE20EA05E6002E2797 /* DragDropTool.m in Sources */,
 				E4FB20A020E9F39B002E2797 /* aeskey.c in Sources */,

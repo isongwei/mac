@@ -44,11 +44,11 @@
     self.statusItem.button.action = @selector(SHOWPOP:);
     
     
-    //menu
-//    MainMenu *menu = [[MainMenu alloc] init];
-//    menu.quitItem.target = self;
-//    menu.quitItem.action = @selector(quit);
-//    self.statusItem.menu = menu;
+    ////menu
+    MainMenu *menu = [[MainMenu alloc] init];
+    menu.quitItem.target = self;
+    menu.quitItem.action = @selector(quit);
+    self.statusItem.menu = menu;
     
     
     //自定义 item 样式 - setView

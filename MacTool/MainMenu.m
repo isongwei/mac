@@ -7,7 +7,7 @@
 //
 
 #import "MainMenu.h"
-
+#import "ArchiveInfo.h"
 
 @implementation MainMenu
 
@@ -28,12 +28,15 @@
 -(void)initView{
     
     // this title will be ignore too
-    NSMenuItem * appItem = [[NSMenuItem alloc] initWithTitle:@"App Item" action:Nil keyEquivalent:@""];
+    NSMenuItem * appItem = [[NSMenuItem alloc] initWithTitle:@"打包" action:Nil keyEquivalent:@""];
     [self addItem:appItem];
     
     // this title will be ignore too
     NSMenu *appMenu = [[NSMenu alloc] initWithTitle:@"application"];
     self.aboutItem  = [[NSMenuItem alloc] initWithTitle:@"about" action:Nil keyEquivalent:@""];
+    ArchiveInfo * ss = [[ArchiveInfo alloc]initWithNibName:@"ArchiveInfo" bundle:nil];
+    self.aboutItem.view = ss.view;
+    
     self.quitItem = [[NSMenuItem alloc] initWithTitle:@"quit" action:Nil keyEquivalent:@""];
     
     [appMenu addItem:self.aboutItem];
@@ -44,11 +47,12 @@
     
     
     // this title will be ignore too
-    NSMenuItem * windowItem = [[NSMenuItem alloc] initWithTitle:@"Window Item" action:Nil keyEquivalent:@""];
-    NSMenu *windowMenu = [[NSMenu alloc] initWithTitle:@"window"];
-    
-    
+    NSMenuItem * windowItem = [[NSMenuItem alloc] initWithTitle:@"博客" action:Nil keyEquivalent:@""];
     [self addItem:windowItem];
+    
+    
+    
+    NSMenu *windowMenu = [[NSMenu alloc] initWithTitle:@"window"];
     [windowMenu addItemWithTitle:@"hide me" action:Nil keyEquivalent:@""];
     [windowMenu addItemWithTitle:@"hide others" action:Nil keyEquivalent:@""];
     [self setSubmenu:windowMenu forItem:windowItem];
@@ -56,13 +60,6 @@
     
     
     
-    NSView * view = [[NSView alloc]initWithFrame:(NSMakeRect(0, 0, 200, 40))];
-    view.wantsLayer = YES;
-    view.layer.backgroundColor = [NSColor grayColor].CGColor;
-    
-    NSMenuItem * item = [[NSMenuItem alloc]init];
-    item.view =view;
-    [self addItem:item];
     
     
     

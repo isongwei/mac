@@ -28,7 +28,6 @@
 -(void)initView{
     
     NSActionCell *searchCell = [[self.mySearchField cell]searchButtonCell];
-    
     NSActionCell *cancelCell = [[self.mySearchField cell]cancelButtonCell];
     
     searchCell.target = self;
@@ -53,22 +52,14 @@
 
 -(void)initData{
     NSString *rootPath = NSHomeDirectory();
-    
     NSArray * arr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/Library/Developer/Xcode/DerivedData",rootPath] error:nil];
     NSLog(@"rootPath--%@",arr);
-    
-    
     _dataArr = [NSMutableArray array];
     for (NSString * str in arr) {
-//        NSLog(@"rootPath--%@",str);
         if ([str rangeOfString: @"."].length == 0) {
-//            NSLog(@"..--%@",str);
             if([[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/Library/Developer/Xcode/DerivedData/%@/Build/Products/Release-iphoneos",NSHomeDirectory(),str]]){
-//                            NSLog(@"--%@",str);
-
                 NSArray * detailArr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/Library/Developer/Xcode/DerivedData/%@/Build/Products/Release-iphoneos",NSHomeDirectory(),str] error:nil];
                     NSLog(@"--%@",detailArr);
-
                 for (NSString * ss in detailArr) {
                     if ([ss rangeOfString:@".app"].location == ss.length-4) {
                         
