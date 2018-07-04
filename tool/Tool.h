@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <Cocoa/Cocoa.h>
 @interface Tool : NSObject
 +(NSString *)TimeWithFormat:(NSString *)type;
+
++(BOOL)isRunningWith:(NSString *)Id;
 @end

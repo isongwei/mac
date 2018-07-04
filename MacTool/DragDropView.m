@@ -53,12 +53,23 @@
  ***/
 -(NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender{
     NSPasteboard *pboard = [sender draggingPasteboard];
-    
     if ([[pboard types] containsObject:NSFilenamesPboardType]) {
+        
+        
+        if(self.delegate && [self.delegate respondsToSelector:@selector(start)]){
+            [self.delegate start];
+        }
+        
         return NSDragOperationCopy;
     }
     
     return NSDragOperationNone;
+}
+
+- (void)draggingExited:(nullable id <NSDraggingInfo>)sender{
+    if(self.delegate && [self.delegate respondsToSelector:@selector(start)]){
+        [self.delegate stop];
+    }
 }
 /***
  第三步：当在view中松开鼠标键时会触发以下函数，我们可以在这个函数里面处理接受到的数据

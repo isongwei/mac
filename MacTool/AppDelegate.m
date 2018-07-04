@@ -13,7 +13,7 @@
 
 #import "MainMenu.h"
 #import "Tool.h"
-
+#import "UserNotificationCenter.h"
 
 @interface AppDelegate ()<DragDropViewDelegate>
 
@@ -85,8 +85,16 @@
     NSString *str1 = NSHomeDirectory();
     NSLog(@"%@", str1);
     
+    [[UserNotificationCenter sharedUserNotificationCenter] showUserNotificationTitle:@"点击了" withSubTitle:@"www" withInformativeText:@"zzz" withContentImage:[NSImage imageNamed:@"tool.png"]];
     
     [_pop showRelativeToRect:button.bounds ofView:button preferredEdge:NSRectEdgeMaxY];
+}
+
+-(void)start{
+    _v.layer.backgroundColor = [NSColor colorWithWhite:0 alpha:0.5].CGColor;
+}
+-(void)stop{
+    _v.layer.backgroundColor = [NSColor clearColor].CGColor;
 }
 -(void)dragDropViewFileList:(NSArray*)fileList{
     //对文件进行copy 压缩生成ipa

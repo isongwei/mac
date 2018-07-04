@@ -38,6 +38,7 @@
 		E4FB20EE20EB5EAF002E2797 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FB20ED20EB5EAF002E2797 /* MainMenu.m */; };
 		E4FB211420EB6D63002E2797 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FB211320EB6D63002E2797 /* Tool.m */; };
 		E4FB211620EB73FC002E2797 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = E4FB211520EB73FC002E2797 /* loading.png */; };
+		E4FB211920EC6010002E2797 /* UserNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FB211820EC6010002E2797 /* UserNotificationCenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,8 @@
 		E4FB211220EB6D63002E2797 /* Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
 		E4FB211320EB6D63002E2797 /* Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tool.m; sourceTree = "<group>"; };
 		E4FB211520EB73FC002E2797 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
+		E4FB211720EC6010002E2797 /* UserNotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserNotificationCenter.h; sourceTree = "<group>"; };
+		E4FB211820EC6010002E2797 /* UserNotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserNotificationCenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +256,8 @@
 			children = (
 				E4FB211220EB6D63002E2797 /* Tool.h */,
 				E4FB211320EB6D63002E2797 /* Tool.m */,
+				E4FB211720EC6010002E2797 /* UserNotificationCenter.h */,
+				E4FB211820EC6010002E2797 /* UserNotificationCenter.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 				E4FB20A420E9F39B002E2797 /* sha1.c in Sources */,
 				E42809C620E4AF0600552AC8 /* Popvc.m in Sources */,
 				E4FB209920E9F39B002E2797 /* crypt.c in Sources */,
+				E4FB211920EC6010002E2797 /* UserNotificationCenter.m in Sources */,
 				E42809AA20E47A2900552AC8 /* AppDelegate.m in Sources */,
 				E4FB209A20E9F39B002E2797 /* unzip.c in Sources */,
 				E4FB20A720E9F39B002E2797 /* pwd2key.c in Sources */,

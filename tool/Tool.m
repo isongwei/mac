@@ -30,4 +30,20 @@
     return [formatter stringFromDate:[NSDate date]];
     
 }
+
+
++(BOOL)isRunningWith:(NSString *)Id{
+    
+    BOOL isRunning = NO;
+    NSString *key = Id;
+    NSString *mainBundleIdentifier = (NSString *)[NSBundle mainBundle].infoDictionary[key];
+    NSArray *runningApplications = [NSWorkspace sharedWorkspace].runningApplications;
+    for (NSRunningApplication *app in runningApplications) {
+        if ([app.bundleIdentifier isEqualToString:mainBundleIdentifier]) {
+            isRunning = true;
+            break;
+        }
+    }
+    return isRunning;
+}
 @end

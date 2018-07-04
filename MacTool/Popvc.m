@@ -71,7 +71,15 @@
 
                 for (NSString * ss in detailArr) {
                     if ([ss rangeOfString:@".app"].location == ss.length-4) {
-                        [_dataArr addObject:ss];
+                        
+                        NSFileManager *fileManager = [NSFileManager defaultManager];
+                        
+                        NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:[NSString stringWithFormat:@"%@/Library/Developer/Xcode/DerivedData/%@/Build/Products/Release-iphoneos/%@",NSHomeDirectory(),str,ss] error:nil];
+                        NSDate *fileModDate = [fileAttributes objectForKey:NSFileModificationDate];
+
+                        
+                        
+                        [_dataArr addObject:[NSString stringWithFormat:@"%@-%@",fileModDate,ss]];
                     }
                 }
             }

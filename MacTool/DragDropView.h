@@ -17,5 +17,12 @@
 @end
 
 @protocol DragDropViewDelegate <NSObject>
+
 -(void)dragDropViewFileList:(NSArray*)fileList;
+
+-(void)start;
+-(void)stop;
+
+
+
 @end
