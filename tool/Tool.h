@@ -12,4 +12,6 @@
 +(NSString *)TimeWithFormat:(NSString *)type;
 
 +(BOOL)isRunningWith:(NSString *)Id;
+
++(NSArray * )getAppList;
 @end

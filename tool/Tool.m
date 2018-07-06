@@ -46,4 +46,38 @@
     }
     return isRunning;
 }
+
+
++(NSArray * )getAppList{
+    
+    NSMutableArray  *arrList = @[].mutableCopy;
+    NSString *rootPath = NSHomeDirectory();
+    NSArray * arr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/Library/Developer/Xcode/DerivedData",rootPath] error:nil];
+
+    
+    for (NSString * str in arr) {
+        if ([str rangeOfString: @"."].length == 0) {
+            if([[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/Library/Developer/Xcode/DerivedData/%@/Build/Products/Release-iphoneos",NSHomeDirectory(),str]]){
+                NSArray * detailArr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/Library/Developer/Xcode/DerivedData/%@/Build/Products/Release-iphoneos",NSHomeDirectory(),str] error:nil];
+                
+                for (NSString * ss in detailArr) {
+                    if ([ss rangeOfString:@".app"].location == ss.length-4) {
+                        
+                        NSFileManager *fileManager = [NSFileManager defaultManager];
+                        
+                        NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:[NSString stringWithFormat:@"%@/Library/Developer/Xcode/DerivedData/%@/Build/Products/Release-iphoneos/%@",NSHomeDirectory(),str,ss] error:nil];
+                        NSDate *fileModDate = [fileAttributes objectForKey:NSFileModificationDate];
+                        
+                        [arrList addObject:[NSString stringWithFormat:@"%@-%@",[fileModDate.description componentsSeparatedByString:@" +"][0],ss]];
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    return arrList;
+    
+    
+}
 @end

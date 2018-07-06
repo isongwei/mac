@@ -103,7 +103,7 @@
     NSLog(@"row-%li",row);
     
     
-    NSArray * detailArr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/Library/Developer/Xcode/DerivedData/%@/Build/Products/Release-iphoneos",NSHomeDirectory(),_dataArr[row]] error:nil];
+//    NSArray * detailArr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[NSString stringWithFormat:@"%@/Library/Developer/Xcode/DerivedData/%@/Build/Products/Release-iphoneos",NSHomeDirectory(),_dataArr[row]] error:nil];
     
     
     return 1;

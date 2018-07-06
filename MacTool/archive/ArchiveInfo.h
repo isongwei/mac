@@ -10,4 +10,6 @@
 
 @interface ArchiveInfo : NSViewController
 
++(instancetype)viewWithTitle:(NSString*)title;
+
 @end

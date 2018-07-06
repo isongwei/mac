@@ -9,7 +9,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface MainMenu : NSMenu
-@property (strong, nonatomic)  NSMenuItem* quitItem;
-@property (strong, nonatomic)  NSMenuItem* aboutItem;
 
 @end

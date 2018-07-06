@@ -119,35 +119,35 @@
     
     
 }
--(void)openRoot{
-    
-    AuthorizationRef authorizationRef;
-    OSStatus status;
-    
-    status = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
-    
-    // Run the tool using the authorization reference
-    char *tool = "/sbin/dmesg";
-    char *args[] = {NULL};
-    FILE *pipe = NULL;
-    
-    status = AuthorizationExecuteWithPrivileges(authorizationRef, tool, kAuthorizationFlagDefaults, args, &pipe);
-    
-    // Print to standard output
-    char readBuffer[128];
-    if (status == errAuthorizationSuccess)
-    {
-        for (;;)
-        {
-            int bytesRead = read(fileno(pipe), readBuffer, sizeof(readBuffer));
-            if (bytesRead < 1) break;
-            write(fileno(stdout), readBuffer, bytesRead);
-        }
-    } else
-    {
-        NSLog(@"Authorization Result Code: %d", status);
-    }
-}
+//-(void)openRoot{
+//    
+//    AuthorizationRef authorizationRef;
+//    OSStatus status;
+//    
+//    status = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authorizationRef);
+//    
+//    // Run the tool using the authorization reference
+//    char *tool = "/sbin/dmesg";
+//    char *args[] = {NULL};
+//    FILE *pipe = NULL;
+//    
+//    status = AuthorizationExecuteWithPrivileges(authorizationRef, tool, kAuthorizationFlagDefaults, args, &pipe);
+//    
+//    // Print to standard output
+//    char readBuffer[128];
+//    if (status == errAuthorizationSuccess)
+//    {
+//        for (;;)
+//        {
+//            int bytesRead = read(fileno(pipe), readBuffer, sizeof(readBuffer));
+//            if (bytesRead < 1) break;
+//            write(fileno(stdout), readBuffer, bytesRead);
+//        }
+//    } else
+//    {
+//        NSLog(@"Authorization Result Code: %d", status);
+//    }
+//}
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
     return _dataArr.count;

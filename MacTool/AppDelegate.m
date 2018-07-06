@@ -10,7 +10,6 @@
 #import "Popvc.h"
 #import "SSZipArchive.h"
 #import "DragDropView.h"
-
 #import "MainMenu.h"
 #import "Tool.h"
 #import "UserNotificationCenter.h"
@@ -20,9 +19,9 @@
 
 @property (nonatomic ,strong) NSPopover * pop;
 @property (nonatomic ,strong) DragDropView * v;
+@property (assign) BOOL isDrag;
 
 @property(nonatomic,strong)NSStatusItem  * statusItem;
-@property (nonatomic, strong) NSLevelIndicator * activityIndicator;//转圈
 
 
 @end
@@ -38,17 +37,15 @@
 
 -(void)setStatusItem{
     self.statusItem = [[NSStatusBar systemStatusBar]statusItemWithLength:NSVariableStatusItemLength];
-    NSImage* image = [NSImage imageNamed:@"tool.png"];
+    NSImage* image = [NSImage imageNamed:@"tool"];
     [self.statusItem.button setImage:image];
     [self.statusItem setToolTip:@"拖拽到这里生成ipa包"];
     self.statusItem.target = self;
     self.statusItem.button.action = @selector(SHOWPOP:);
     
     
-    ////menu
+    //menu
     MainMenu *menu = [[MainMenu alloc] init];
-    menu.quitItem.target = self;
-    menu.quitItem.action = @selector(quit);
     self.statusItem.menu = menu;
     
     
@@ -66,42 +63,50 @@
     
     
     
-    
     //点击弹出视图
     _pop = [[NSPopover alloc]init];
+    //ArchiveInfo
     _pop.contentViewController = [[Popvc alloc]initWithNibName:@"Popvc" bundle:nil];
     _pop.behavior = NSPopoverBehaviorTransient;
     _pop.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantLight];
-    //点击事件
     
-}
-
-- (void)quit{
-    NSLog(@"quit");
+    
 }
 
 
 
 -(void)SHOWPOP:(NSStatusBarButton *)button{
-    NSString *str1 = NSHomeDirectory();
-    NSLog(@"%@", str1);
-    
-    [[UserNotificationCenter sharedUserNotificationCenter] showUserNotificationTitle:@"点击了" withSubTitle:@"www" withInformativeText:@"zzz" withContentImage:[NSImage imageNamed:@"tool.png"]];
     
     [_pop showRelativeToRect:button.bounds ofView:button preferredEdge:NSRectEdgeMaxY];
+    return;
+    [[UserNotificationCenter sharedUserNotificationCenter] showUserNotificationTitle:@"点击了" withSubTitle:@"www" withInformativeText:@"zzz" withContentImage:[NSImage imageNamed:@"tool.png"]];
+    
+    
 }
 
 -(void)start{
     _v.layer.backgroundColor = [NSColor colorWithWhite:0 alpha:0.5].CGColor;
 }
 -(void)stop{
-    _v.layer.backgroundColor = [NSColor clearColor].CGColor;
+    if (self.isDrag) {
+        _v.layer.backgroundColor = [NSColor clearColor].CGColor;
+    }
+    
 }
+
+
 -(void)dragDropViewFileList:(NSArray*)fileList{
     //对文件进行copy 压缩生成ipa
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self startArchive:fileList[0]];
+    });
+    
+}
+
+-(void)startArchive:(NSString *)dataPath{
+    
     
     NSString *rootPath = NSHomeDirectory();
-    NSString *dataPath = fileList[0];
     
     if (![[[[dataPath lastPathComponent] componentsSeparatedByString:@"."] lastObject] isEqualToString:@"app"]) {
         return;
@@ -121,6 +126,7 @@
     
     if (S) {
         NSLog(@"创建成功");
+        self.isDrag = YES;
         _v.layer.backgroundColor = [NSColor colorWithWhite:0 alpha:0.5].CGColor;
     }else{
         NSLog(@"创建失败");
@@ -139,19 +145,27 @@
                 
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     self->_v.layer.backgroundColor = [NSColor clearColor].CGColor;
+                    self.isDrag = NO;
                 });
                 
             }else{
                 _v.layer.backgroundColor = [NSColor clearColor].CGColor;
+                self.isDrag = NO;
             }
         }else{
             NSLog(@"压缩失败");
             _v.layer.backgroundColor = [NSColor clearColor].CGColor;
+            self.isDrag = NO;
         }
     }else{
         NSLog(@"Not Copied %@", error);
         _v.layer.backgroundColor = [NSColor clearColor].CGColor;
+        self.isDrag = NO;
     }
+    
+    
+    
+    
 }
 
 
