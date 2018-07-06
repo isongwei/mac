@@ -8,6 +8,19 @@
 
 #import "MainMenu.h"
 #import "ArchiveInfo.h"
+#import "MainVC.h"
+#import "SelPicWC.h"
+
+@interface MainMenu()
+
+
+@property(nonatomic,strong)SelPicWC * selPicWC;
+
+
+
+
+
+@end
 
 @implementation MainMenu
 
@@ -47,15 +60,16 @@
     
     
     // this title will be ignore too
-    NSMenuItem * windowItem = [[NSMenuItem alloc] initWithTitle:@"博客" action:Nil keyEquivalent:@""];
+    NSMenuItem * windowItem = [[NSMenuItem alloc] initWithTitle:@"图片剪裁" action:@selector(pic:) keyEquivalent:@""];
+    windowItem.target = self;
     [self addItem:windowItem];
     
     
     
-    NSMenu *windowMenu = [[NSMenu alloc] initWithTitle:@"window"];
-    [windowMenu addItemWithTitle:@"hide me" action:Nil keyEquivalent:@""];
-    [windowMenu addItemWithTitle:@"hide others" action:Nil keyEquivalent:@""];
-    [self setSubmenu:windowMenu forItem:windowItem];
+//    NSMenu *windowMenu = [[NSMenu alloc] initWithTitle:@"window"];
+//    [windowMenu addItemWithTitle:@"hide me" action:Nil keyEquivalent:@""];
+//    [windowMenu addItemWithTitle:@"hide others" action:Nil keyEquivalent:@""];
+//    [self setSubmenu:windowMenu forItem:windowItem];
     
     
     
@@ -78,5 +92,15 @@
  */
 
 
+-(void)pic:(NSMenuItem*)item{
+    
+    self.selPicWC = [[SelPicWC alloc]initWithWindowNibName:@"SelPicWC"];
+    [NSApp activateIgnoringOtherApps:YES];
+//    [window makeKeyAndOrderFront:nil];
+    [self.selPicWC showWindow:item];
+    
+    NSLog(@"sd");
+    
+}
 
 @end

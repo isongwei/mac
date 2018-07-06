@@ -31,6 +31,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self setStatusItem];
+    
 }
 
 

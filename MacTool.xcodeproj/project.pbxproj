@@ -34,13 +34,14 @@
 		E4FB20A720E9F39B002E2797 /* pwd2key.c in Sources */ = {isa = PBXBuildFile; fileRef = E4FB209520E9F39B002E2797 /* pwd2key.c */; };
 		E4FB20A820E9F39B002E2797 /* aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = E4FB209620E9F39B002E2797 /* aestab.c */; };
 		E4FB20AB20E9F667002E2797 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E4FB20AA20E9F667002E2797 /* libz.tbd */; };
-		E4FB20AE20EA05E6002E2797 /* DragDropTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FB20AD20EA05E6002E2797 /* DragDropTool.m */; };
 		E4FB20EE20EB5EAF002E2797 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FB20ED20EB5EAF002E2797 /* MainMenu.m */; };
 		E4FB211420EB6D63002E2797 /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FB211320EB6D63002E2797 /* Tool.m */; };
 		E4FB211620EB73FC002E2797 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = E4FB211520EB73FC002E2797 /* loading.png */; };
 		E4FB211920EC6010002E2797 /* UserNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FB211820EC6010002E2797 /* UserNotificationCenter.m */; };
 		E4FB213F20ECA98B002E2797 /* ArchiveInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FB213D20ECA98B002E2797 /* ArchiveInfo.m */; };
 		E4FB214020ECA98B002E2797 /* ArchiveInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FB213E20ECA98B002E2797 /* ArchiveInfo.xib */; };
+		E4FB21B820EEFADB002E2797 /* SelPicWC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FB21B620EEFADB002E2797 /* SelPicWC.m */; };
+		E4FB21B920EEFADB002E2797 /* SelPicWC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4FB21B720EEFADB002E2797 /* SelPicWC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,8 +100,6 @@
 		E4FB209720E9F39B002E2797 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
 		E4FB209820E9F39B002E2797 /* fileenc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileenc.h; sourceTree = "<group>"; };
 		E4FB20AA20E9F667002E2797 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		E4FB20AC20EA05E6002E2797 /* DragDropTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragDropTool.h; sourceTree = "<group>"; };
-		E4FB20AD20EA05E6002E2797 /* DragDropTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragDropTool.m; sourceTree = "<group>"; };
 		E4FB20EC20EB5EAF002E2797 /* MainMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		E4FB20ED20EB5EAF002E2797 /* MainMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		E4FB211220EB6D63002E2797 /* Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
@@ -111,6 +110,9 @@
 		E4FB213C20ECA98B002E2797 /* ArchiveInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArchiveInfo.h; sourceTree = "<group>"; };
 		E4FB213D20ECA98B002E2797 /* ArchiveInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArchiveInfo.m; sourceTree = "<group>"; };
 		E4FB213E20ECA98B002E2797 /* ArchiveInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArchiveInfo.xib; sourceTree = "<group>"; };
+		E4FB21B520EEFADB002E2797 /* SelPicWC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelPicWC.h; sourceTree = "<group>"; };
+		E4FB21B620EEFADB002E2797 /* SelPicWC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelPicWC.m; sourceTree = "<group>"; };
+		E4FB21B720EEFADB002E2797 /* SelPicWC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelPicWC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,8 +160,9 @@
 				E4FB20ED20EB5EAF002E2797 /* MainMenu.m */,
 				E4FB202120E9B63B002E2797 /* DragDropView.h */,
 				E4FB202220E9B63B002E2797 /* DragDropView.m */,
-				E4FB20AC20EA05E6002E2797 /* DragDropTool.h */,
-				E4FB20AD20EA05E6002E2797 /* DragDropTool.m */,
+				E4FB21B520EEFADB002E2797 /* SelPicWC.h */,
+				E4FB21B620EEFADB002E2797 /* SelPicWC.m */,
+				E4FB21B720EEFADB002E2797 /* SelPicWC.xib */,
 				E4FB213C20ECA98B002E2797 /* ArchiveInfo.h */,
 				E4FB213D20ECA98B002E2797 /* ArchiveInfo.m */,
 				E4FB213E20ECA98B002E2797 /* ArchiveInfo.xib */,
@@ -341,6 +344,7 @@
 				E42809CA20E4C7CC00552AC8 /* tool.png in Resources */,
 				E42809B220E47A2B00552AC8 /* Main.storyboard in Resources */,
 				E42809C720E4AF0600552AC8 /* Popvc.xib in Resources */,
+				E4FB21B920EEFADB002E2797 /* SelPicWC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,11 +366,11 @@
 				E4FB20A220E9F39B002E2797 /* aescrypt.c in Sources */,
 				E4FB207320E9F382002E2797 /* SSZipArchive.m in Sources */,
 				E4FB20A520E9F39B002E2797 /* aes_ni.c in Sources */,
+				E4FB21B820EEFADB002E2797 /* SelPicWC.m in Sources */,
 				E4FB20A620E9F39B002E2797 /* prng.c in Sources */,
 				E4FB20A820E9F39B002E2797 /* aestab.c in Sources */,
 				E4FB213F20ECA98B002E2797 /* ArchiveInfo.m in Sources */,
 				E4FB209B20E9F39B002E2797 /* zip.c in Sources */,
-				E4FB20AE20EA05E6002E2797 /* DragDropTool.m in Sources */,
 				E4FB20A020E9F39B002E2797 /* aeskey.c in Sources */,
 				E4FB209C20E9F39B002E2797 /* ioapi.c in Sources */,
 				E4FB20A420E9F39B002E2797 /* sha1.c in Sources */,
