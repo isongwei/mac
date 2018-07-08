@@ -129,4 +129,27 @@
     return newImage;
 }
 
+- (CGImageRef)nsImageToCGImageRef
+{
+    NSData * imageData = [self TIFFRepresentation];
+    CGImageRef imageRef = NULL;
+    if(imageData)
+    {
+        CGImageSourceRef imageSource =
+        CGImageSourceCreateWithData(
+                                    (CFDataRef)imageData,  NULL);
+        imageRef = CGImageSourceCreateImageAtIndex(imageSource, 0, NULL);
+    }
+    return imageRef;
+}
+
+-(CGSize)realSize{
+    
+    
+    CGImageRef imageRef = [self nsImageToCGImageRef];
+    //这个size就是实际图片的像素大小
+    CGSize size = CGSizeMake(CGImageGetWidth(imageRef), CGImageGetHeight(imageRef));
+    return size;
+}
+
 @end

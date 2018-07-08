@@ -13,5 +13,8 @@
 
 - (NSImage *)stretchableImageWithSize:(NSSize)size edgeInsets:(NSEdgeInsets)insets;
 - (NSImage *)stretchableImageWithLeftCapWidth:(float)leftWidth middleWidth:(float)middleWidth rightCapWidth:(float)rightWidth;
+- (CGImageRef)nsImageToCGImageRef;
+
+-(CGSize)realSize;
 
 @end

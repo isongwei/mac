@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) NSButton *zoomButton;
 @property (weak) IBOutlet NSTextField *nameTF;
+@property (weak) IBOutlet NSTextField *picH;
+@property (weak) IBOutlet NSTextField *picW;
 
 @end
 
@@ -55,7 +57,11 @@
         self->_imageV.image = [[NSImage alloc]initWithContentsOfFile:path];
         self->_nameTF.stringValue = [path lastPathComponent];//[[[path lastPathComponent] componentsSeparatedByString:@"."]firstObject];
         
+        CGSize size = [[[NSImage alloc]initWithContentsOfFile:path] realSize];
+        self->_picH.stringValue = [NSString stringWithFormat:@"H:%.2f",size.height];
+        self->_picW.stringValue = [NSString stringWithFormat:@"W:%.2f",size.width];
         
+        NSLog(@"%@", NSStringFromSize([[[NSImage alloc]initWithContentsOfFile:path] realSize]));
         
     });
     
@@ -74,10 +80,7 @@
 }
 
 -(void)dragDropViewFileList:(NSArray*)fileList{
-    
-    if ([self setPic:fileList[0]]) {
-        
-    }
+    [self setPic:fileList[0]];
 }
 
 
@@ -89,7 +92,6 @@
     if (![imageArr containsObject:type]) {
         return NO;
     }
-    
     self.path = name;
     return YES;
 }
