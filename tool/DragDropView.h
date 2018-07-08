@@ -9,7 +9,6 @@
 #import <Cocoa/Cocoa.h>
 
 
-
 @protocol DragDropViewDelegate;
 
 @interface DragDropView : NSView

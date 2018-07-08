@@ -13,6 +13,7 @@
 #import "MainMenu.h"
 #import "Tool.h"
 #import "UserNotificationCenter.h"
+#import "SelPicWC.h"
 
 @interface AppDelegate ()<DragDropViewDelegate>
 
@@ -97,6 +98,7 @@
 
 -(void)dragDropViewFileList:(NSArray*)fileList{
     //对文件进行copy 压缩生成ipa
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self startArchive:fileList[0]];
     });
@@ -109,6 +111,16 @@
     NSString *rootPath = NSHomeDirectory();
     
     if (![[[[dataPath lastPathComponent] componentsSeparatedByString:@"."] lastObject] isEqualToString:@"app"]) {
+        
+        //对图片处理
+        
+        [NSApp activateIgnoringOtherApps:YES];
+        
+        if ([[SelPicWC sharedSelPicWC] setPic:dataPath]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[SelPicWC sharedSelPicWC] showWindow:self];
+            });
+        }
         return;
     }
     NSError *error = nil;

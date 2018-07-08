@@ -14,4 +14,5 @@
 +(BOOL)isRunningWith:(NSString *)Id;
 
 +(NSArray * )getAppList;
+
 @end

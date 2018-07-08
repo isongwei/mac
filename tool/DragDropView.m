@@ -23,8 +23,8 @@
 
 -(void)awakeFromNib{
     
-    self.wantsLayer = YES;
-    self.layer.backgroundColor = [NSColor redColor].CGColor;
+//    self.wantsLayer = YES;
+//    self.layer.backgroundColor = [NSColor redColor].CGColor;
     [self registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, nil]];
 }
 

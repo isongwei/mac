@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00280E5920EFF21200B1F065 /* main_256x256_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00280E5820EFF21200B1F065 /* main_256x256_@2x.png */; };
+		00280E5F20F1D7EE00B1F065 /* NSImage+Stretchable.m in Sources */ = {isa = PBXBuildFile; fileRef = 00280E5D20F1D7EE00B1F065 /* NSImage+Stretchable.m */; };
+		00280E6320F1D86A00B1F065 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00280E6220F1D86900B1F065 /* Cocoa.framework */; };
 		E42809AA20E47A2900552AC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E42809A920E47A2900552AC8 /* AppDelegate.m */; };
 		E42809AF20E47A2B00552AC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E42809AE20E47A2B00552AC8 /* Assets.xcassets */; };
 		E42809B220E47A2B00552AC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E42809B020E47A2B00552AC8 /* Main.storyboard */; };
@@ -45,6 +48,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00280E5820EFF21200B1F065 /* main_256x256_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_256x256_@2x.png"; sourceTree = "<group>"; };
+		00280E5D20F1D7EE00B1F065 /* NSImage+Stretchable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Stretchable.m"; sourceTree = "<group>"; };
+		00280E5E20F1D7EE00B1F065 /* NSImage+Stretchable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Stretchable.h"; sourceTree = "<group>"; };
+		00280E6020F1D85700B1F065 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		00280E6220F1D86900B1F065 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E42809A520E47A2900552AC8 /* MacTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E42809A820E47A2900552AC8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E42809A920E47A2900552AC8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -120,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00280E6320F1D86A00B1F065 /* Cocoa.framework in Frameworks */,
 				E4FB20AB20E9F667002E2797 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,7 +163,6 @@
 				E42809A920E47A2900552AC8 /* AppDelegate.m */,
 				E4FB21BF20EF47BA002E2797 /* Menu */,
 				E4FB21BD20EF4575002E2797 /* popView */,
-				E4FB21BC20EF4532002E2797 /* ssh */,
 				E4FB21BB20EF4529002E2797 /* Pic */,
 				E4FB21BA20EF451C002E2797 /* archive */,
 				E42809AE20E47A2B00552AC8 /* Assets.xcassets */,
@@ -172,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				E4FB211520EB73FC002E2797 /* loading.png */,
+				00280E5820EFF21200B1F065 /* main_256x256_@2x.png */,
 				E4F8451A20EF6CBD00B2886B /* tool@2x.png */,
 			);
 			path = res;
@@ -249,6 +258,8 @@
 		E4FB20A920E9F667002E2797 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00280E6220F1D86900B1F065 /* Cocoa.framework */,
+				00280E6020F1D85700B1F065 /* CoreImage.framework */,
 				E4FB20AA20E9F667002E2797 /* libz.tbd */,
 			);
 			name = Frameworks;
@@ -259,6 +270,8 @@
 			children = (
 				E4FB211220EB6D63002E2797 /* Tool.h */,
 				E4FB211320EB6D63002E2797 /* Tool.m */,
+				00280E5E20F1D7EE00B1F065 /* NSImage+Stretchable.h */,
+				00280E5D20F1D7EE00B1F065 /* NSImage+Stretchable.m */,
 				E4FB211720EC6010002E2797 /* UserNotificationCenter.h */,
 				E4FB211820EC6010002E2797 /* UserNotificationCenter.m */,
 				E4FB202120E9B63B002E2797 /* DragDropView.h */,
@@ -285,13 +298,6 @@
 				E4FB21B720EEFADB002E2797 /* SelPicWC.xib */,
 			);
 			path = Pic;
-			sourceTree = "<group>";
-		};
-		E4FB21BC20EF4532002E2797 /* ssh */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ssh;
 			sourceTree = "<group>";
 		};
 		E4FB21BD20EF4575002E2797 /* popView */ = {
@@ -349,7 +355,7 @@
 								enabled = 0;
 							};
 							com.apple.Sandbox = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -384,6 +390,7 @@
 				E42809B220E47A2B00552AC8 /* Main.storyboard in Resources */,
 				E42809C720E4AF0600552AC8 /* Popvc.xib in Resources */,
 				E4F8451B20EF6CBD00B2886B /* tool@2x.png in Resources */,
+				00280E5920EFF21200B1F065 /* main_256x256_@2x.png in Resources */,
 				E4FB21B920EEFADB002E2797 /* SelPicWC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +414,7 @@
 				E4FB207320E9F382002E2797 /* SSZipArchive.m in Sources */,
 				E4FB20A520E9F39B002E2797 /* aes_ni.c in Sources */,
 				E4FB21B820EEFADB002E2797 /* SelPicWC.m in Sources */,
+				00280E5F20F1D7EE00B1F065 /* NSImage+Stretchable.m in Sources */,
 				E4FB20A620E9F39B002E2797 /* prng.c in Sources */,
 				E4FB20A820E9F39B002E2797 /* aestab.c in Sources */,
 				E4FB213F20ECA98B002E2797 /* ArchiveInfo.m in Sources */,

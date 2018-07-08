@@ -40,8 +40,11 @@
 }
 
 
+
 -(void)initView{
     
+    
+       
     // this title will be ignore too
     NSMenuItem * appItem = [[NSMenuItem alloc] initWithTitle:@"打包" action:Nil keyEquivalent:@""];
     [self addItem:appItem];
@@ -64,18 +67,29 @@
     [self addItem: [NSMenuItem separatorItem]];
     
     //2
-    NSMenuItem * windowItem = [[NSMenuItem alloc] initWithTitle:@"图片剪裁" action:@selector(pic:) keyEquivalent:@""];
+    NSMenuItem * windowItem = [[NSMenuItem alloc] initWithTitle:@"图片" action:@selector(pic:) keyEquivalent:@""];
     windowItem.target = self;
     [self addItem:windowItem];
+    [self addItem: [NSMenuItem separatorItem]];
     
-    
+    //3
+    NSMenuItem * Item3 = [[NSMenuItem alloc] initWithTitle:@"终端" action:@selector(exit) keyEquivalent:@""];
+    Item3.target = self;
+    [self addItem:Item3];
     [self addItem: [NSMenuItem separatorItem]];
     
     
-    //3
-    NSMenuItem * Item3 = [[NSMenuItem alloc] initWithTitle:@"退出" action:@selector(exit) keyEquivalent:@""];
-    Item3.target = self;
-    [self addItem:Item3];
+    
+    
+    //last
+    NSMenuItem * Itemlast = [[NSMenuItem alloc] initWithTitle:@"退出" action:@selector(exit) keyEquivalent:@""];
+    Itemlast.target = self;
+    [self addItem:Itemlast];
+    
+    
+    
+    
+    
     
 }
 
@@ -87,7 +101,7 @@
 
 -(void)pic:(NSMenuItem*)item{
     
-    self.selPicWC = [[SelPicWC alloc]initWithWindowNibName:@"SelPicWC"];
+    self.selPicWC = [SelPicWC sharedSelPicWC];
     [NSApp activateIgnoringOtherApps:YES];
     [self.selPicWC showWindow:item];
 }

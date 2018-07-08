@@ -9,5 +9,9 @@
 #import <Cocoa/Cocoa.h>
 
 @interface SelPicWC : NSWindowController
+@property (weak) IBOutlet NSImageView *imageV;
+
+-(BOOL)setPic:(NSString *)name;
++(instancetype)sharedSelPicWC;
 
 @end
